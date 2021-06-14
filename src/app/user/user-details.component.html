@@ -1,0 +1,20 @@
+<h1>User Details</h1>
+<div class="loader-block" *ngIf="ShowLoading">
+  <app-spinner></app-spinner>
+</div>
+
+<div *ngIf="!ShowLoading">
+  <div>
+    <b>User:</b> {{userDetails.Name}}, {{userDetails.UserName}}, {{userDetails.Email}}, {{userDetails.Phone}},
+    {{userDetails.Website}}
+  </div>
+  <dv><b>Company:</b></dv> {{userDetails.Company.Name}}, {{userDetails.Company.CatchPhrase}}, {{userDetails.Company.Bs}}
+  <div><b>Address:</b> {{userDetails.Address.Street}}, {{userDetails.Address.Suite}}, {{userDetails.Address.City}}, {{userDetails.Address.Zipcode}}
+      <b>Geo:</b> {{userDetails.Address.Geo.Lat}},{{userDetails.Address.Geo.Lng}}
+  </div>
+  <h2>Posts:</h2>
+  <div style="padding: 10px;" *ngFor="let post of userDetails.Posts">
+      <b>Title:</b>{{post.Title}}
+      <b>Body:</b>{{post.Body}}
+  </div>
+</div>

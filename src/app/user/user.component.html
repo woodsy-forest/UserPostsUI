@@ -1,0 +1,17 @@
+<h1>User List</h1>
+<p style="color: red;">PLEASE NOTE: this UI in only made to show the functionalities of the web app, not to look pretty. To make the pages responsive
+, I use Angular/Flex-Layout. The UI is set up to use Lazy-Loading. It is not SEO Friendly, for this I use Angular Universal.
+The API are not protected, for this I use JWT. Normally when display a list I set up a paging system, which I did not in this demo, because it is not really needed.
+For the same reason I did not create any Unit Tests. Normally I use Karma and Jamine for this.</p>
+<div class="loader-block" *ngIf="ShowLoading">
+  <app-spinner></app-spinner>
+</div>
+<div style="padding: 10px;" *ngIf="!ShowLoading" fxLayout="column" fxFlexFill>
+  <div style="padding: 10px;" *ngFor="let user of users">
+    <b>Name:</b> <a target="_new" href="./user/{{user.Id}}">{{user.Name}}</a> 
+    <b> UserName:</b> {{user.UserName}}
+    <b> Post Number:</b>{{user.PostCount}}
+  </div>
+</div>
+
+ 
