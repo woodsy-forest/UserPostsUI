@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { UserService } from './user.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { UserDto } from '../DTOs/UserDto'
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'user',
@@ -16,6 +17,7 @@ export class UserComponent  implements OnInit {
     public users: UserDto[] = [];
 
     constructor (private router: Router,
+      private titleService: Title,
       private userService: UserService) {}
 
 
@@ -23,6 +25,8 @@ export class UserComponent  implements OnInit {
 
 
         this.ShowLoading = true;
+
+        this.titleService.setTitle("Users");
    
         // --------------------------------------------
         // Get Users - begin

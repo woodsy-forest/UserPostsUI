@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { UserService } from './user.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { UserDetailsDto } from '../DTOs/UserDetailsDto'
+import { UserDetailsDto } from '../DTOs/UserDetailsDto';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'user-details',
@@ -17,13 +18,14 @@ export class UserDetailsComponent  implements OnInit {
     public userId: number;
 
     constructor (private route: ActivatedRoute,
+      private titleService: Title,
       private userService: UserService) {}
 
 
     ngOnInit(): void {
 
         this.userId = Number(this.route.snapshot.paramMap.get('id'));
-
+        this.titleService.setTitle("User Details");
 
         this.ShowLoading = true;
    
